@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  simple-form:
+    build: .
+    image: simple-form:latest
+    container_name: simple-form
+    ports:
+      - "9010:8000"
+    environment:
+      - LOG_PASSWORDS=false
+      - LOG_DIR=/app/logs
+    volumes:
+      - /var/log/simple-form:/app/logs
+    restart: unless-stopped
