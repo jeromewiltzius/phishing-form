@@ -1,4 +1,4 @@
-version: "3.8"
+version: '3.8'
 
 services:
   simple-form:
@@ -6,10 +6,11 @@ services:
     image: simple-form:latest
     container_name: simple-form
     ports:
-      - "9010:8000"
+      - '9010:8000'
     environment:
-      - LOG_PASSWORDS=false
-      - LOG_DIR=/app/logs
+      LOG_PASSWORDS: 'false'
+      LOG_DIR: /app/logs
     volumes:
       - /var/log/simple-form:/app/logs
+    user: '1000:1000'        # <= aide à éviter les problèmes de permissions
     restart: unless-stopped
